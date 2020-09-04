@@ -98,7 +98,6 @@ button{
         }
     
     }
-    
 }
 
 .streamers{
@@ -109,7 +108,7 @@ button{
         width: 2em;
         height: 2em;
         border-radius: 50%;
-    }    
+    }        
 }
 
 .back{
@@ -149,6 +148,12 @@ button{
 
     .name{
         font-weight: bold;
+    }
+
+    .footer-title{
+        color: whitesmoke;
+        font-weight: bold;
+        text-align: center;
     }
 }
 
@@ -222,4 +227,64 @@ button{
         opacity: 1;
         transform: scale(1.2);
     }
+}
+
+.streamer{
+    .icon{
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+        position: relative;
+        &::before,
+        &::after{
+            opacity: 0;
+            position: absolute;
+            border-radius: 50%;
+            content: "";
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+        &::before{
+            content: "\f04b";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 0.65em;
+            background: #f00;
+            display: grid;
+            place-items: center;
+            
+        }
+        &:hover{
+            transform: translateY(-15%) scale(1.2);
+          &::before{
+            background: #cc0202;
+          } 
+          &::after{
+              animation: pulse 1250 ms infinite;
+          } 
+        }
+    }&:hover{
+        .icon{
+            transform: translateY(-10%);
+            &::before{
+                opacity: 1;
+        }
+        }
+        
+
+    }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
